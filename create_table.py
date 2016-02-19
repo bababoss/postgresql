@@ -2,13 +2,13 @@ import MyDB
 db = MyDB.DB()
 
 try:
-    db.execute("CREATE TABLE Measurement (time_stamp TIMESTAMP NOT NULL, MotionMeasure INT, TempMeasure INT, LightSensitivity INT,  ZoneID VARCHAR);")
+    db.execute("CREATE TABLE zones (user_id INT NOT NULL, zone1 TIMESTAMPTZ, zone2 TIMESTAMPTZ, zone3 TIMESTAMPTZ, zone4 TIMESTAMPTZ);")
     print "table created successfully"
 except:
     db.conn.rollback()
-    db.execute("DROP TABLE Measurement")
+    db.execute("DROP TABLE zones")
     print "Drop database successfully"
-    db.execute("CREATE TABLE Measurement (time_stamp TIMESTAMP NOT NULL, MotionMeasure INT, TempMeasure INT, LightSensitivity INT);")
+    db.execute("CREATE TABLE login_out (user_id INT NOT NULL, zone1 TIMESTAMPTZ, zone2 TIMESTAMPTZ, zone3 TIMESTAMPTZ, zone4 TIMESTAMPTZ);")
     print "Drop database and again create successfully"
 db.commit()
 db.close()

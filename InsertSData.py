@@ -3,22 +3,54 @@
 #import MyDB connection module
 import MyDB
 db = MyDB.DB()
-i=12
-j=22
-k=33
-db.execute("INSERT INTO Measurement (time_stamp,MotionMeasure,TempMeasure,LightSensitivity,ZoneID) \
-      VALUES (NOW(), %s, %s, %s,'room1' )", [i,j,k]);
+import time
+user_id=1027
+zone_id = ['zone1','zone2','zone3','zone4']
+list = ['1021','2022','2023','2024']
+#db.execute("INSERT INTO login_out (user_id,zone1) \
+#      VALUES ( %s, NOW() )", [list[0]]);
 
-db.execute("INSERT INTO Measurement (time_stamp,MotionMeasure,TempMeasure,LightSensitivity,ZoneID) \
-      VALUES (NOW(),14, 35, 47, 'room2' )");
+i=0
+while (i<len(list)):
+    if zone_id[i]=='zone1':
+        db.execute("INSERT INTO login_out (user_id,zone1) \
+              VALUES ( %s, NOW() )", [list[i]]);
+        db.commit()
+        print "zone is", i
+        i=i+1
+        time.sleep(1)
+        print 'i is',i
 
-db.execute("INSERT INTO Measurement (time_stamp,MotionMeasure,TempMeasure,LightSensitivity,ZoneID) \
-      VALUES (NOW(), 14, 35, 47, 'room3' )");
+    elif zone_id[i]=='zone2':
+        db.execute("INSERT INTO login_out (user_id,zone2) \
+              VALUES ( %s, NOW() )", [list[i]]);
+        db.commit()
+        print "zone is", i
+        i=i+1
+        time.sleep(1)
+        print 'i is',i
 
-db.execute("INSERT INTO Measurement (time_stamp,MotionMeasure,TempMeasure,LightSensitivity,ZoneID) \
-      VALUES (NOW(), 16, 36, 48, 'room4' )");
+    elif zone_id[i]=='zone3':
+        db.execute("INSERT INTO login_out (user_id,zone3) \
+              VALUES ( %s, NOW() )", [list[i]]);
+        db.commit()
+        print "zone is", i
+        i=i+1
+        time.sleep(1)
+        print 'i is',i
 
+    elif zone_id[i]=='zone4':
+        db.execute("INSERT INTO login_out (user_id,zone4) \
+              VALUES ( %s, NOW() )", [list[i]]);
+        db.commit()
+        print "zone is", i
+        i=i+1
+        time.sleep(1)
+        print 'i is',i
 
+db.execute("INSERT INTO login_out (user_id,zone4) \
+                    VALUES ( %s, NOW() )", [list[0]]);
 db.commit()
 print "Records created successfully";
+print zone_id
 db.close()
