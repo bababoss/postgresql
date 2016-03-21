@@ -3,7 +3,7 @@ import psycopg2
 class DB:
     def __init__(self):
         try:
-            self.conn = psycopg2.connect(database="attendance", user="attendanceuser", password="India!@1234", host="localhost", port="5432")
+            self.conn = psycopg2.connect(database="siamsdb", user="siamsdbuser", password="india1234", host="localhost", port="5432")
             print "database connected successfully"
         except:
             print "unable to connect to database"

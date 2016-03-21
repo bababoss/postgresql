@@ -13,7 +13,7 @@ list = ['1021','2022','2023','2024']
 i=0
 while (i<len(list)):
     if zone_id[i]=='zone1':
-        db.execute("INSERT INTO login_out (user_id,zone1) \
+        db.execute("INSERT INTO zones (user_id,zone1) \
               VALUES ( %s, NOW() )", [list[i]]);
         db.commit()
         print "zone is", i
@@ -22,7 +22,7 @@ while (i<len(list)):
         print 'i is',i
 
     elif zone_id[i]=='zone2':
-        db.execute("INSERT INTO login_out (user_id,zone2) \
+        db.execute("INSERT INTO zones (user_id,zone2) \
               VALUES ( %s, NOW() )", [list[i]]);
         db.commit()
         print "zone is", i
@@ -31,7 +31,7 @@ while (i<len(list)):
         print 'i is',i
 
     elif zone_id[i]=='zone3':
-        db.execute("INSERT INTO login_out (user_id,zone3) \
+        db.execute("INSERT INTO zones (user_id,zone3) \
               VALUES ( %s, NOW() )", [list[i]]);
         db.commit()
         print "zone is", i
@@ -40,7 +40,7 @@ while (i<len(list)):
         print 'i is',i
 
     elif zone_id[i]=='zone4':
-        db.execute("INSERT INTO login_out (user_id,zone4) \
+        db.execute("INSERT INTO zones (user_id,zone4) \
               VALUES ( %s, NOW() )", [list[i]]);
         db.commit()
         print "zone is", i
@@ -48,7 +48,7 @@ while (i<len(list)):
         time.sleep(1)
         print 'i is',i
 
-db.execute("INSERT INTO login_out (user_id,zone4) \
+db.execute("INSERT INTO zones (user_id,zone4) \
                     VALUES ( %s, NOW() )", [list[0]]);
 db.commit()
 print "Records created successfully";
